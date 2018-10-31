@@ -18,7 +18,10 @@ namespace scilari{
   */
     class AliasTable {
     public:
-        /// Constructs alias table by using the given point mass function (pmf). Pmf does not need to be normalized.
+        /**
+         * Constructs the alias table structure by using the probability masses.
+         * @param pmf Indexed probability masses.
+         */
         explicit AliasTable(const std::vector<double>& pmf);
 
         /// Indices of elements corresponding to the probability mass in aliasProbabilities
