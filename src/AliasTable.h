@@ -6,6 +6,9 @@
 #define SAS_CPP_ALIASTABLE_H
 
 #include <vector>
+
+namespace scilari{
+
 /**
   * Kronmal and Peterson 1979 implementation of alias method by Walker (1974, 1977) as described in
   * "An Analysis of the Alias Method for Discrete Random-Variate Generation" by Smith and Jacobson (2005)
@@ -13,8 +16,6 @@
   * After initialization with the point mass function (pmf), the object acts as a wrapper for the aliased
   * value indices and their corresponding probabilities (ratio of the bin).
   */
-namespace scilari{
-
     class AliasTable {
     public:
         /// Constructs alias table by using the given point mass function (pmf). Pmf does not need to be normalized.
