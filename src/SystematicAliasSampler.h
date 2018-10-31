@@ -5,7 +5,7 @@
 #ifndef SAS_CPP_SYSTEMATICALIASSAMPLER_H
 #define SAS_CPP_SYSTEMATICALIASSAMPLER_H
 
-#include <assert.h>
+#include <cassert>
 #include <chrono>
 #include <random>
 #include <stdexcept>
@@ -15,9 +15,19 @@
 
 namespace scilari{
 
+    /**
+     * Systematic Alias Sampler described fully in the corresponding paper (TOMS, ACM, Vallivaara et. al). Allows
+     * efficient batch sampling, and produces empirical distributions with good fit.
+     * @tparam E Element type of the values returned by the sampler.
+     */
     template <class E> class SystematicAliasSampler {
 
     public:
+        /**
+         * Constructs the sampler
+         * @param values Values corresponding to the probability masses (pmf)
+         * @param pmf Probability masses corresponding to the values.
+         */
         SystematicAliasSampler(const std::vector<E> &values, const std::vector<double> &pmf)
                 : values_(values), aliasedValues_(values.size()),
                   binCount_(values.size()) {
@@ -27,14 +37,29 @@ namespace scilari{
             InitializeAliasTable(NormalizedProbabilities(pmf));
         }
 
+        /**
+         * Returns a single i.i.d. sample.
+         * @return I.i.d. sample.
+         */
         E Sample() { return Sample(RandomInt(), RandomDouble()); }
 
-        std::vector<E> Sample(int k) {
-            std::vector<E> v(k);
-            return Sample(k, v);
+        /**
+         * Returns a non-i.i.d. batch of samples from the pmf given in constructor.
+         * @param sampleCount Number of samples
+         * @return Vector containing the samples (partially ordered).
+         */
+        std::vector<E> Sample(int sampleCount) {
+            std::vector<E> v(sampleCount);
+            return Sample(sampleCount, v);
         }
 
-        std::vector<E> Sample(int k, std::vector<E> &v) { return SampleSystematic(k, v, 0); }
+        /**
+         * Returns a non-i.i.d. batch of samples from the pmf given in constructor.
+         * @param sampleCount Number of samples.
+         * @param output Pre-initialized vector of size sampleCount used as the return value.
+         * @return Vector containing the samples (partially ordered).
+         */
+        std::vector<E> Sample(int sampleCount, std::vector<E> &output) { return SampleSystematic(sampleCount, output, 0); }
 
 
     private:
