@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/ilari/CLionProjects/sas_cpp/src/AliasTable.cpp
+AliasTable.h
+C:/Users/ilari/CLionProjects/sas_cpp/src/AliasTable.h
+stack
+-
+
+C:/Users/ilari/CLionProjects/sas_cpp/src/AliasTable.h
+vector
+-
+

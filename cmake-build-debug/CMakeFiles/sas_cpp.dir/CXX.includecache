@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/ilari/CLionProjects/sas_cpp/main.cpp
+iostream
+-
+vector
+-
+src/SystematicAliasSampler.h
+C:/Users/ilari/CLionProjects/sas_cpp/src/SystematicAliasSampler.h
+
+C:/Users/ilari/CLionProjects/sas_cpp/src/AliasTable.h
+vector
+-
+
+C:/Users/ilari/CLionProjects/sas_cpp/src/SystematicAliasSampler.h
+assert.h
+-
+chrono
+-
+random
+-
+stdexcept
+-
+string
+-
+vector
+-
+AliasTable.h
+C:/Users/ilari/CLionProjects/sas_cpp/src/AliasTable.h
+

@@ -1,0 +1,1 @@
+ -LC:/Users/ilari/CLionProjects/sas_cpp/src -llibfoo ../gtest/src/gtest-build/googlemock/gtest/libgtest.a -llibgmock -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
